@@ -8,15 +8,13 @@
 </head>
 <body>
     <div class="background-images">
-        <div class="background-images">
-            <!-- Add multiple images with the class 'background-image' -->
-            <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Ethereum" class="background-image" style="top: 5%; left: 10%; width: 150px;">
-            <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin" class="background-image" style="top: 50%; left: 20%; width: 180px;">
-            <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.png" alt="Binance Coin" class="background-image" style="top: 80%; left: 30%; width: 120px;">
-            <img src="https://cryptologos.cc/logos/cardano-ada-logo.png" alt="Cardano" class="background-image" style="top: 10%; left: 60%; width: 200px;">
-            <img src="https://cryptologos.cc/logos/ripple-xrp-logo.png" alt="Ripple" class="background-image" style="top: 40%; left: 80%; width: 170px;">
-            <img src="https://cryptologos.cc/logos/polkadot-new-dot-logo.png" alt="Polkadot" class="background-image" style="top: 70%; left: 90%; width: 160px;">
-        </div>
+        <!-- Add multiple images with the class 'background-image' -->
+        <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Ethereum" class="background-image" style="top: 5%; left: 10%; width: 150px;">
+        <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin" class="background-image" style="top: 50%; left: 20%; width: 180px;">
+        <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.png" alt="Binance Coin" class="background-image" style="top: 80%; left: 30%; width: 120px;">
+        <img src="https://cryptologos.cc/logos/cardano-ada-logo.png" alt="Cardano" class="background-image" style="top: 10%; left: 60%; width: 200px;">
+        <img src="https://cryptologos.cc/logos/ripple-xrp-logo.png" alt="Ripple" class="background-image" style="top: 40%; left: 80%; width: 170px;">
+        <img src="https://cryptologos.cc/logos/polkadot-new-dot-logo.png" alt="Polkadot" class="background-image" style="top: 70%; left: 90%; width: 160px;">
     </div>
 
     <header>
@@ -40,7 +38,7 @@
                 </label>
                 <div class="input-row">
                     <input type="number" placeholder="0.0">
-                    <button class="token-select" onclick="openTokenPopup()">ETH</button>
+                    <button class="token-select" data-type="from" onclick="openTokenPopup('from')">ETH</button>
                 </div>
             </div>
             <div class="input-group">
@@ -50,7 +48,7 @@
                 </label>
                 <div class="input-row">
                     <input type="number" placeholder="0.0">
-                    <button class="token-select" onclick="openTokenPopup()">BTC</button>
+                    <button class="token-select" data-type="to" onclick="openTokenPopup('to')">BTC</button>
                 </div>
             </div>
             <button class="swap-button">Approve and Swap</button>
@@ -63,53 +61,55 @@
         <h2>Select a Token</h2>
         <input type="text" class="token-search" placeholder="Search name or paste address" onkeyup="filterTokens()">
         <div class="token-list">
-            <div class="token-item" onclick="selectToken('ETH')">
+            <div class="token-item" onclick="selectToken('ETH', 'https://cryptologos.cc/logos/ethereum-eth-logo.png')">
                 <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" class="token-icon" alt="Ethereum">
                 <span>Ethereum (ETH)</span>
             </div>
-            <div class="token-item" onclick="selectToken('BTC')">
+            <div class="token-item" onclick="selectToken('BTC', 'https://cryptologos.cc/logos/bitcoin-btc-logo.png')">
                 <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" class="token-icon" alt="Bitcoin">
                 <span>Bitcoin (BTC)</span>
             </div>
-            <div class="token-item" onclick="selectToken('BNB')">
+            <div class="token-item" onclick="selectToken('BNB', 'https://cryptologos.cc/logos/binance-coin-bnb-logo.png')">
                 <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.png" class="token-icon" alt="Binance Coin">
                 <span>Binance Coin (BNB)</span>
             </div>
-            <div class="token-item" onclick="selectToken('ADA')">
+            <div class="token-item" onclick="selectToken('ADA', 'https://cryptologos.cc/logos/cardano-ada-logo.png')">
                 <img src="https://cryptologos.cc/logos/cardano-ada-logo.png" class="token-icon" alt="Cardano">
                 <span>Cardano (ADA)</span>
             </div>
-            <div class="token-item" onclick="selectToken('XRP')">
+            <div class="token-item" onclick="selectToken('XRP', 'https://cryptologos.cc/logos/ripple-xrp-logo.png')">
                 <img src="https://cryptologos.cc/logos/ripple-xrp-logo.png" class="token-icon" alt="Ripple">
                 <span>Ripple (XRP)</span>
             </div>
-            <div class="token-item" onclick="selectToken('DOT')">
+            <div class="token-item" onclick="selectToken('DOT', 'https://cryptologos.cc/logos/polkadot-new-dot-logo.png')">
                 <img src="https://cryptologos.cc/logos/polkadot-new-dot-logo.png" class="token-icon" alt="Polkadot">
                 <span>Polkadot (DOT)</span>
             </div>
-            <div class="token-item" onclick="selectToken('LTC')">
+            <div class="token-item" onclick="selectToken('LTC', 'https://cryptologos.cc/logos/litecoin-ltc-logo.png')">
                 <img src="https://cryptologos.cc/logos/litecoin-ltc-logo.png" class="token-icon" alt="Litecoin">
                 <span>Litecoin (LTC)</span>
             </div>
-            <div class="token-item" onclick="selectToken('SOL')">
+            <div class="token-item" onclick="selectToken('SOL', 'https://cryptologos.cc/logos/solana-sol-logo.png')">
                 <img src="https://cryptologos.cc/logos/solana-sol-logo.png" class="token-icon" alt="Solana">
                 <span>Solana (SOL)</span>
             </div>
-            <div class="token-item" onclick="selectToken('UNI')">
+            <div class="token-item" onclick="selectToken('UNI', 'https://cryptologos.cc/logos/uniswap-uni-logo.png')">
                 <img src="https://cryptologos.cc/logos/uniswap-uni-logo.png" class="token-icon" alt="Uniswap">
                 <span>Uniswap (UNI)</span>
             </div>
-            <div class="token-item" onclick="selectToken('LINK')">
+            <div class="token-item" onclick="selectToken('LINK', 'https://cryptologos.cc/logos/chainlink-link-logo.png')">
                 <img src="https://cryptologos.cc/logos/chainlink-link-logo.png" class="token-icon" alt="Chainlink">
                 <span>Chainlink (LINK)</span>
             </div>
-            <!-- Add more token items as needed -->
         </div>
         
     </div>
 
     <script>
-        function openTokenPopup() {
+        let currentType = null;
+
+        function openTokenPopup(type) {
+            currentType = type;
             document.querySelector('.overlay').style.display = 'block';
             document.querySelector('.token-popup').style.display = 'block';
         }
@@ -119,8 +119,9 @@
             document.querySelector('.token-popup').style.display = 'none';
         }
 
-        function selectToken(token) {
-            console.log(token + " selected");
+        function selectToken(token, tokenImage) {
+            const button = document.querySelector(`.token-select[data-type="${currentType}"]`);
+            button.innerHTML = `<img src="${tokenImage}" alt="${token}" style="width: 20px; margin-right: 5px;"> ${token}`;
             closeTokenPopup();
         }
 
