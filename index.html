@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cipherswap</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-images">
+        <div class="background-images">
+            <!-- Add multiple images with the class 'background-image' -->
+            <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Ethereum" class="background-image" style="top: 5%; left: 10%; width: 150px;">
+            <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin" class="background-image" style="top: 50%; left: 20%; width: 180px;">
+            <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.png" alt="Binance Coin" class="background-image" style="top: 80%; left: 30%; width: 120px;">
+            <img src="https://cryptologos.cc/logos/cardano-ada-logo.png" alt="Cardano" class="background-image" style="top: 10%; left: 60%; width: 200px;">
+            <img src="https://cryptologos.cc/logos/ripple-xrp-logo.png" alt="Ripple" class="background-image" style="top: 40%; left: 80%; width: 170px;">
+            <img src="https://cryptologos.cc/logos/polkadot-new-dot-logo.png" alt="Polkadot" class="background-image" style="top: 70%; left: 90%; width: 160px;">
+        </div>
+    </div>
+
+    <header>
+        <div class="logo">cipherswap</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+        </div>
+        <div class="button-container">
+            <button class="connect-btn">Please Install MetaMask</button>
+            <button class="connect-btn">INR Payment</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="swap-container">
+            <h1>cipherswap</h1>
+            <div class="input-group">
+                <label>
+                    <span>From</span>
+                    <span>Balance: 0.00</span>
+                </label>
+                <div class="input-row">
+                    <input type="number" placeholder="0.0">
+                    <button class="token-select" onclick="openTokenPopup()">ETH</button>
+                </div>
+            </div>
+            <div class="input-group">
+                <label>
+                    <span>To</span>
+                    <span>Balance: 0.00</span>
+                </label>
+                <div class="input-row">
+                    <input type="number" placeholder="0.0">
+                    <button class="token-select" onclick="openTokenPopup()">BTC</button>
+                </div>
+            </div>
+            <button class="swap-button">Approve and Swap</button>
+        </div>
+    </main>
+
+    <div class="overlay" onclick="closeTokenPopup()"></div>
+    <div class="token-popup">
+        <span class="close-popup" onclick="closeTokenPopup()">×</span>
+        <h2>Select a Token</h2>
+        <input type="text" class="token-search" placeholder="Search name or paste address">
+        <div class="token-list">
+            <div class="token-item" onclick="selectToken('ETH')">
+                <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" class="token-icon" alt="Ethereum">
+                <span>Ethereum (ETH)</span>
+            </div>
+            <div class="token-item" onclick="selectToken('BTC')">
+                <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" class="token-icon" alt="Bitcoin">
+                <span>Bitcoin (BTC)</span>
+            </div>
+            <div class="token-item" onclick="selectToken('BNB')">
+                <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.png" class="token-icon" alt="Binance Coin">
+                <span>Binance Coin (BNB)</span>
+            </div>
+            <div class="token-item" onclick="selectToken('ADA')">
+                <img src="https://cryptologos.cc/logos/cardano-ada-logo.png" class="token-icon" alt="Cardano">
+                <span>Cardano (ADA)</span>
+            </div>
+            <div class="token-item" onclick="selectToken('XRP')">
+                <img src="https://cryptologos.cc/logos/ripple-xrp-logo.png" class="token-icon" alt="Ripple">
+                <span>Ripple (XRP)</span>
+            </div>
+            <div class="token-item" onclick="selectToken('DOT')">
+                <img src="https://cryptologos.cc/logos/polkadot-new-dot-logo.png" class="token-icon" alt="Polkadot">
+                <span>Polkadot (DOT)</span>
+            </div>
+            <div class="token-item" onclick="selectToken('LTC')">
+                <img src="https://cryptologos.cc/logos/litecoin-ltc-logo.png" class="token-icon" alt="Litecoin">
+                <span>Litecoin (LTC)</span>
+            </div>
+            <div class="token-item" onclick="selectToken('SOL')">
+                <img src="https://cryptologos.cc/logos/solana-sol-logo.png" class="token-icon" alt="Solana">
+                <span>Solana (SOL)</span>
+            </div>
+            <div class="token-item" onclick="selectToken('UNI')">
+                <img src="https://cryptologos.cc/logos/uniswap-uni-logo.png" class="token-icon" alt="Uniswap">
+                <span>Uniswap (UNI)</span>
+            </div>
+            <div class="token-item" onclick="selectToken('LINK')">
+                <img src="https://cryptologos.cc/logos/chainlink-link-logo.png" class="token-icon" alt="Chainlink">
+                <span>Chainlink (LINK)</span>
+            </div>
+            <!-- Add more token items as needed -->
+        </div>
+        
+    </div>
+
+    <script>
+        function openTokenPopup() {
+            document.querySelector('.overlay').style.display = 'block';
+            document.querySelector('.token-popup').style.display = 'block';
+        }
+
+        function closeTokenPopup() {
+            document.querySelector('.overlay').style.display = 'none';
+            document.querySelector('.token-popup').style.display = 'none';
+        }
+
+        function selectToken(token) {
+            console.log(token + " selected");
+            closeTokenPopup();
+        }
+    </script>
+</body>
+</html>
