@@ -61,7 +61,7 @@
     <div class="token-popup">
         <span class="close-popup" onclick="closeTokenPopup()">×</span>
         <h2>Select a Token</h2>
-        <input type="text" class="token-search" placeholder="Search name or paste address">
+        <input type="text" class="token-search" placeholder="Search name or paste address" onkeyup="filterTokens()">
         <div class="token-list">
             <div class="token-item" onclick="selectToken('ETH')">
                 <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" class="token-icon" alt="Ethereum">
@@ -122,6 +122,19 @@
         function selectToken(token) {
             console.log(token + " selected");
             closeTokenPopup();
+        }
+
+        function filterTokens() {
+            const input = document.querySelector('.token-search').value.toLowerCase();
+            const tokenItems = document.querySelectorAll('.token-item');
+            tokenItems.forEach(item => {
+                const tokenName = item.textContent.toLowerCase();
+                if (tokenName.includes(input)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
         }
     </script>
 </body>
